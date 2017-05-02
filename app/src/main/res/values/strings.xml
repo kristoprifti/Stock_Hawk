@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Stock Hawk</string>
+
+    <string name="pref_stocks_initialized_key" translatable="false">initialized</string>
+
+    <string name="pref_stocks_key" translatable="false">stocks</string>
+
+    <string name="pref_display_mode_key" translatable="false">displayMode</string>
+    <string name="pref_display_mode_default" translatable="false">@string/pref_display_mode_percentage_key</string>
+
+    <string name="pref_display_mode_absolute_key" translatable="false">absolute</string>
+    <string name="pref_display_mode_percentage_key" translatable="false">percentage</string>
+
+    <string name="default_stocks_yahoo" translatable="true">YHOO</string>
+    <string name="default_stocks_apple" translatable="true">AAPL</string>
+    <string name="default_stocks_microsoft" translatable="true">MSFT</string>
+    <string name="default_stocks_facebook" translatable="true">FB</string>
+
+    <string name="action_change_units" translatable="false">@string/pref_display_mode_key</string>
+
+    <string name="dialog_title" translatable="true">Add Stock</string>
+    <string name="dialog_hint" translatable="true">Symbol (e.g. GOOG)</string>
+    <string name="dialog_cancel" translatable="true">Cancel</string>
+    <string name="dialog_add" translatable="true">Add</string>
+
+    <string name="error_no_network" translatable="true">No network connectivity! Will load stock cursor when the network is available.</string>
+    <string name="error_no_stocks" translatable="true">No stocks added! Hit the floating action button to add one.</string>
+
+    <string name="toast_stock_added_no_connectivity" translatable="true">Symbol %s added. Will refresh when network available.</string>
+    <string name="toast_no_connectivity" translatable="true">Will refresh when network available.</string>
+    <string name="swipe_refresh_layout_description" translatable="true">Layout for the swipe to refresh control</string>
+    <string name="stock_list_description" translatable="true">Layout for the list of stocks</string>
+    <string name="new_stock_description" translatable="true">Button to add a new stock to the list</string>
+    <string name="error_description" translatable="true">Textview of the error message</string>
+    <string name="linear_layout_description" translatable="true">Layout for the dialog of new stock</string>
+    <string name="new_stock_edittext_description" translatable="true">Text field to write the new stock that you want to add in the list</string>
+    <string name="linear_layout_single_stock_description" translatable="true">Layout of one item displayed in the list of stocks</string>
+    <string name="stock_symbol_description" translatable="true">Text field displaying the symbol of the stock</string>
+    <string name="stock_price_description" translatable="true">Text field displaying the price of the stock</string>
+    <string name="stock_change_description" translatable="true">Text field displaying the change of the stock in percentage or money</string>
+    <string name="invalid_symbol">%s is an invalid stock symbol!</string>
+    <string name="chart_content_description">Chart that shows the history of the stock</string>
+
+    <string name="percentage_sign" translatable="false">%s%%</string>
+    <string name="dollar_sign" translatable="false">$%s</string>
+    <string name="widget_title">Title of the widget</string>
+    <string name="stock_list_widget_description">The list of stocks in the widget</string>
+    <string name="empty_view_message_description">View for empty message</string>
+    <string name="empty_view_message">No records in stock list!</string>
+</resources>
