@@ -1,20 +1,20 @@
 package com.udacity.stockhawk.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
@@ -42,8 +42,9 @@ public class DetailActivity extends AppCompatActivity {
     @BindView(R.id.stockPercentageChange)
     TextView mStockPercentageChange;
     @BindView(R.id.stockPriceChart)
-    LineChart mStockPriceChart;
+    BarChart mStockPriceChart;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +73,7 @@ public class DetailActivity extends AppCompatActivity {
                         if(getSupportActionBar() != null)
                             getSupportActionBar().setTitle(symbolName + " (" + symbol + ")");
 
-                        mStockPriceValue.setText(String.valueOf(symbolPriceValue));
+                        mStockPriceValue.setText(getString(R.string.dollar_sign, String.valueOf(symbolPriceValue)));
                         mStockAbsoluteChange.setText(getString(R.string.dollar_sign, String.valueOf(symbolAbsoluteChange)));
                         mStockPercentageChange.setText(getString(R.string.percentage_sign, String.valueOf(symbolPercentageChange)));
 
@@ -86,7 +87,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void createGraphFromHistory(String symbol, String symbolHistory) {
-        List<Entry> entries = new ArrayList<>();
+        List<BarEntry> entries = new ArrayList<>();
         List<String[]> lines = getLines(symbolHistory);
 
         final List<Long> xAxisValues = new ArrayList<>();
@@ -100,25 +101,25 @@ public class DetailActivity extends AppCompatActivity {
             xAxisPosition++;
 
             // add entry data
-            Entry entry = new Entry(xAxisPosition, // timestamp
+            BarEntry entry = new BarEntry(xAxisPosition, // timestamp
                     Float.valueOf(line[1]) // price
             );
             entries.add(entry);
         }
 
-        drawChart(symbol, entries, xAxisValues);
+        drawBarChart(symbol, entries, xAxisValues);
     }
 
-    private void drawChart(String symbol, List<Entry> entries, final List<Long> xAxisValues) {
+    private void drawBarChart(String symbol, List<BarEntry> entries, final List<Long> xAxisValues) {
         Description description = new Description();
-        description.setText("");
+        description.setText(getString(R.string.chart_description));
         mStockPriceChart.setDescription(description);
 
-        LineDataSet dataSet = new LineDataSet(entries, symbol);
-        dataSet.setColor(Color.RED);
+        BarDataSet dataSet = new BarDataSet(entries, symbol);
+        dataSet.setColor(Color.BLUE);
 
-        LineData lineData = new LineData(dataSet);
-        mStockPriceChart.setData(lineData);
+        BarData barData = new BarData(dataSet);
+        mStockPriceChart.setData(barData);
 
         XAxis xAxis = mStockPriceChart.getXAxis();
         xAxis.setValueFormatter(new IAxisValueFormatter() {

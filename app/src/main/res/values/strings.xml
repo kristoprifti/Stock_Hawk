@@ -47,4 +47,5 @@
     <string name="stock_list_widget_description">The list of stocks in the widget</string>
     <string name="empty_view_message_description">View for empty message</string>
     <string name="empty_view_message">No records in stock list!</string>
+    <string name="chart_description">Stock Price History</string>
 </resources>

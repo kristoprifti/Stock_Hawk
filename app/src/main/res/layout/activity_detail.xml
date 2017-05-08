@@ -30,8 +30,8 @@
             android:id="@+id/stockAbsoluteChange"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="end|center_vertical"
+            android:layout_weight="1"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="italic|bold"
@@ -50,7 +50,7 @@
 
     </LinearLayout>
 
-    <com.github.mikephil.charting.charts.LineChart
+    <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/stockPriceChart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
